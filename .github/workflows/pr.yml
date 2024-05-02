@@ -25,6 +25,10 @@ jobs:
     name: TypeScript client tests
     uses: ./.github/workflows/_typescript-client-tests.yml
 
+  rust-tests:
+    name: Rust tests
+    uses: ./.github/workflows/_rust-tests.yml
+
   check-title:
     name: Check PR Title
     runs-on: ubuntu-latest

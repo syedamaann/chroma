@@ -1,0 +1,20 @@
+name: Rust tests
+
+on:
+  workflow_call:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup
+        uses: ./.github/actions/rust
+      - name: Build
+        run: cargo build --verbose
+      - name: Test
+        run: cargo test --verbose
